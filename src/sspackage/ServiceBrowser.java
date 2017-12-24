@@ -14,6 +14,7 @@ public class ServiceBrowser {
         JFrame frame = new JFrame("RMI Browser");
         mainPanel = new JPanel();
         frame.getContentPane().add(BorderLayout.CENTER, mainPanel);
+        //search in the RMI registry
         Object[] services = getServicesList();
         serviceList = new JComboBox(services);
         
@@ -22,6 +23,7 @@ public class ServiceBrowser {
         frame.setSize(500, 500);
         frame.setVisible(true);
     }
+    //add the selected service to the panel
     void loadService(Object serviceSelection){
         try{
             Service svc = server.getService(serviceSelection);

@@ -17,12 +17,12 @@ public class ServiceServerImpl extends UnicastRemoteObject implements ServiceSer
         serviceList.put("Day of the Week Service", new DayOfTheWeekService());
         serviceList.put("Visual Music Service", new MiniMusicService());
     }
-    
+     //method of displaying services in the browser
     public Object[] getServiceList(){
         System.out.println("in remote");
-        //method of displaying services in the browser
         return serviceList.keySet().toArray();
     }
+    //method call when the user selects a service
     public Service getService(Object serviceKey) throws RemoteException{
         Service theService = (Service) serviceList.get(serviceKey);
         return theService;
