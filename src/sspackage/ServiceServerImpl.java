@@ -12,6 +12,7 @@ public class ServiceServerImpl extends UnicastRemoteObject implements ServiceSer
     }
     private void setUpServices(){
         serviceList = new HashMap();
+        //create services and add them to the list of services
         serviceList.put("Dice Rolling Service", new DiceService());
         serviceList.put("Day of the Week Service", new DayOfTheWeekService());
         serviceList.put("Visual Music Service", new MiniMusicService());
@@ -19,6 +20,7 @@ public class ServiceServerImpl extends UnicastRemoteObject implements ServiceSer
     
     public Object[] getServiceList(){
         System.out.println("in remote");
+        //method of displaying services in the browser
         return serviceList.keySet().toArray();
     }
     public Service getService(Object serviceKey) throws RemoteException{
